@@ -14,7 +14,36 @@ if [[ "$1" == "dev" ]]; then
 	npm install --prefix /srv/nodejs/senti/services/dataseries/development
 	systemctl restart senti-dataseries-dev.service
 	# Senti Slack Workspace
-	curl -X POST -H 'Content-type: application/json' --data '{"text":"Senti Dataseries *dev* updated."}' $2
+	curl -X POST -H 'Content-type: application/json' --data '{
+	"blocks": [
+		{
+			"type": "header",
+			"text": {
+				"type": "plain_text",
+				"text": "Senti Dataseries updated",
+				"emoji": true
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "*Branch:*\nmaster"
+			},
+			"accessory": {
+				"type": "button",
+				"text": {
+					"type": "plain_text",
+					"text": "Travis",
+					"emoji": true
+				},
+				"value": "travis-link",
+				"url": "http://travis.com/senti-iot/senti-dataseries",
+				"action_id": "button-action"
+			}
+		}
+	]
+}' $2
 	echo
 	exit 0
 fi
