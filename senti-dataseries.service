@@ -1,0 +1,21 @@
+[Unit]
+# senti-dataseries.service
+Description=Senti Dataseries
+Documentation=https://github.com/senti-iot/senti-dataseries/blob/master/README.md
+# After=network.target
+
+[Service]
+WorkingDirectory=/srv/nodejs/senti/services/dataseries/production
+ExecStart=/usr/bin/node server.js
+Environment=NODE_PORT=3007
+Environment=NODE_ENV=production
+Type=simple
+Restart=always
+# RestartSec=1
+StartLimitInterval=0
+User=root
+Group=root
+# KillSignal=SIGQUIT
+
+[Install]
+WantedBy=basic.target
