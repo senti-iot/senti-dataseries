@@ -7,7 +7,7 @@ Documentation=https://github.com/senti-iot/senti-dataseries/blob/master/README.m
 [Service]
 WorkingDirectory=/srv/nodejs/senti/services/dataseries/production
 ExecStart=/usr/bin/node server.js
-Environment=NODE_PORT=3007
+Environment=NODE_PORT=3043
 Environment=NODE_ENV=production
 Type=simple
 Restart=always
