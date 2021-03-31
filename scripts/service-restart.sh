@@ -28,7 +28,7 @@ if [[ "$1" == "dev" ]]; then
 			"type": "section",
 			"text": {
 				"type": "mrkdwn",
-				"text": "*Branch:*\nmaster"
+				"text": "*Branch:*\n"'"$1"'
 			},
 			"accessory": {
 				"type": "button",
@@ -38,7 +38,7 @@ if [[ "$1" == "dev" ]]; then
 					"emoji": true
 				},
 				"value": "travis-link",
-				"url": "http://travis.com/senti-iot/senti-dataseries",
+				"url": "http://travis-ci.com/github/senti-iot/senti-dataseries",
 				"action_id": "button-action"
 			}
 		}
