@@ -1,9 +1,9 @@
 #!/usr/bin/env nodejs
 process.title = "senti_gateway"
-const dotenv = require('dotenv').config()
-if (dotenv.error) {
-	console.warn(dotenv.error)
-}
+// const dotenv = require('dotenv').config()
+// if (dotenv.error) {
+// 	console.warn(dotenv.error)
+// }
 console.log('Senti Gateway starting...', process.env.NODE_PORT)
 const express = require('express')
 const cors = require('cors')
@@ -42,7 +42,19 @@ app.use(cors())
 const auth = require('./api/auth/auth')
 app.use([auth])
 
+async function done() {
+	process.exit(0);
+}
 
+process.on('SIGINT', () => {
+	console.error('==== Interrupted ====');
+	done();
+});
+
+process.on('SIGTERM', () => {
+	console.error('==== Terminated ====');
+	done();
+});
 
 //---Start the express server---------------------------------------------------
 
@@ -63,3 +75,4 @@ const startServer = () => {
 }
 
 startServer()
+
