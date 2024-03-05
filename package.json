@@ -33,7 +33,7 @@
 	},
 	"homepage": "https://github.com/senti-iot/senti-dataseries#readme",
 	"dependencies": {
-		"apisauce": "^2.0.1",
+		"apisauce": "^3.0.1",
 		"cli-table3": "^0.6.0",
 		"cors": "^2.8.5",
 		"dotenv": "^8.2.0",
@@ -42,7 +42,7 @@
 		"helmet": "^4.1.0",
 		"moment": "^2.27.0",
 		"mqtt": "^4.2.1",
-		"senti-apicore": "0.0.55"
+		"senti-apicore": "^0.0.6"
 	},
 	"devDependencies": {
 		"eslint": "^6.7.2",
